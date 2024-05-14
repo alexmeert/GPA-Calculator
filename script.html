@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div id="calc-container">
+        <h2>GPA Calculator</h2>
+        <label for="num-classes">Number of Classes:</label>
+        <input type="number" id="num-classes" name="num-classes" min="1" max="10">
+        <button id="submit-btn" onclick="generateInputFields()">Submit</button>
+        <div id="class-inputs"></div>
+        <label for="gpa-option">Calculate:</label>
+        <select id="gpa-option" onchange="toggleCurrentGPAInput()">
+            <option value="current">Current GPA</option>
+            <option value="both">Both (Current & Cumulative)</option>
+        </select>
+        <div id="current-gpa-container" style="display: none;">
+            <label for="current-gpa">Enter current cumulative GPA:</label>
+            <input type="number" id="current-gpa" name="current-gpa" step="0.01" min="0" max="4">
+        </div>
+        <div id="calculate-btn-container">
+            <button id="calculate-btn" onclick="calculateGPA()">Calculate GPA</button>
+        </div>
+        <div id="gpa-result"></div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
