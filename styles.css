@@ -1,0 +1,65 @@
+body {
+    background: #72af7e;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#calc-container {
+    background: rgba(20, 94, 57, 0.5); /* Matcha green */
+    max-width: 500px; /* Adjust width if needed */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    font-size: 14px; /* Adjust font size if needed */
+}
+
+h2, label, p {
+    color: #FFD700; /* Gold */
+    margin: 10px;
+}
+
+input[type=number], input[type=text], select {
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #FFD700; /* Gold */
+    background-color: #fff;
+    color: #000; /* Black */
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FFD700; /* Gold */
+    color: #000; /* Black */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #C0C0C0; /* Dark grey */
+    color: #fff; /* White */
+}
+
+#gpa-result {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #FFD700; /* Gold */
+}
+
+#current-gpa {
+    display: none; /* Initially hidden */
+}
+
+#current-cumulative-gpa-btn{
+    margin-top: 20px;
+}
