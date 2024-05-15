@@ -32,18 +32,21 @@ function calculateRealTimeGPA() {
         cumulativeGPA = calculateCumulativeGPA(totalCredits, totalGradePoints);
     }
 
-    // Display GPAs based on selected option
+    // Insert a line before displaying the GPA
     var gpaResultDiv = document.getElementById('gpa-result');
+    gpaResultDiv.innerHTML = "<hr>"; // Insert horizontal line
+
+    // Display GPAs based on selected option
     if (selectedOption === 'current') {
         // Display current GPA only
-        gpaResultDiv.textContent = "Your current GPA is: " + (isNaN(newGPA) ? "N/A" : newGPA.toFixed(2));
+        gpaResultDiv.innerHTML += "Your current GPA is: " + (isNaN(newGPA) ? "N/A" : newGPA.toFixed(2));
     } else if (selectedOption === 'cumulative') {
         // Display cumulative GPA only
-        gpaResultDiv.textContent = "Your cumulative GPA is: " + (isNaN(cumulativeGPA) ? "N/A" : cumulativeGPA.toFixed(2));
+        gpaResultDiv.innerHTML += "Your cumulative GPA is: " + (isNaN(cumulativeGPA) ? "N/A" : cumulativeGPA.toFixed(2));
     } else if (selectedOption === 'both') {
-        // Display both current and cumulative GPAs
-        gpaResultDiv.textContent = "Your current GPA is: " + (isNaN(newGPA) ? "N/A" : newGPA.toFixed(2)) + "<br>" +
-                                     "Your cumulative GPA is: " + (isNaN(cumulativeGPA) ? "N/A" : cumulativeGPA.toFixed(2));
+        // Display both current and cumulative GPAs on separate lines
+        gpaResultDiv.innerHTML += "Your current GPA is: " + (isNaN(newGPA) ? "N/A" : newGPA.toFixed(2)) + "<br>" +
+                                  "Your cumulative GPA is: " + (isNaN(cumulativeGPA) ? "N/A" : cumulativeGPA.toFixed(2));
     }
 }
 
@@ -60,8 +63,38 @@ function attachRealTimeListeners() {
     });
 }
 
+function validateInputFields() {
+    var isValid = true;
+    var classInputs = document.querySelectorAll(".class-input");
+
+    classInputs.forEach(function(classInput) {
+        var creditsInput = classInput.querySelector("input[type=number]");
+        var credits = parseFloat(creditsInput.value);
+
+        var errorMessage = classInput.querySelector(".error-message");
+
+        // Reset previous error message
+        errorMessage.textContent = '';
+
+        // Validate credit hours
+        if (isNaN(credits) || credits <= 0) {
+            alert("Credit hours must be a positive number.");
+            isValid = false;
+        }
+    });
+
+    return isValid;
+}
+
 function generateInputFields() {
     var numClasses = parseInt(document.getElementById('num-classes').value);
+
+    // Validate the number of classes
+    if (numClasses < 1 || numClasses > 10) {
+        alert("Please enter a number of classes between 1 and 10.");
+        return; // Stop execution if there's an error
+    }
+
     var classInputsContainer = document.getElementById('class-inputs');
     classInputsContainer.innerHTML = ""; // Clear previous inputs
 
@@ -102,11 +135,19 @@ function generateInputFields() {
         var gradeDropdown = document.createElement("select");
         gradeDropdown.name = "grade" + (i + 1);
 
+        // Add placeholder option for the grade dropdown
+        var placeholderOption = document.createElement("option");
+        placeholderOption.value = "";
+        placeholderOption.textContent = "Letter Grade";
+        placeholderOption.disabled = true;
+        placeholderOption.selected = true;
+        gradeDropdown.appendChild(placeholderOption);
+
         // Populate the dropdown with options for grades
         for (var grade in gradeMappings) {
             var option = document.createElement("option");
             option.value = gradeMappings[grade];
-            option.text = grade;
+            option.textContent = grade;
             gradeDropdown.appendChild(option);
         }
 
