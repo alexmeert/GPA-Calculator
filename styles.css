@@ -1,5 +1,5 @@
 body {
-    background: #3b8c54; /* Dark green background */
+    background: linear-gradient(to bottom, #154734, #72af7e);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     align-items: center;
@@ -10,12 +10,12 @@ body {
 
 #calc-container {
     background: rgba(20, 94, 57, 0.5); /* Transparent green container */
+    border: 2px solid #f7df59; /* Gold outline */
     max-width: 500px;
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
     text-align: center;
     font-size: 14px;
 }
