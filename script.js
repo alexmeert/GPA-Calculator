@@ -129,7 +129,7 @@ function generateInputFields() {
 
         var creditsInput = document.createElement("input");
         creditsInput.type = "number";
-        creditsInput.placeholder = "Credit Hours";
+        creditsInput.placeholder = "Credit Hours (Lecture = 3, Lab = 1)";
         classDiv.appendChild(creditsInput);
 
         var gradeDropdown = document.createElement("select");

@@ -1,38 +1,48 @@
 body {
-    background: linear-gradient(to bottom, #154734, #72af7e);
+    background-image: url('floridapolyist.jpg');
+    background-size: cover;
+    background-position: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow: hidden;
 }
 
 #calc-container {
-    background: rgba(20, 94, 57, 0.5); /* Transparent green container */
-    border: 2px solid #f7df59; /* Gold outline */
-    max-width: 500px;
-    padding: 30px;
+    background: linear-gradient(to bottom, #2c1b47, #542d8b);
+    border: 10px solid #bb4c3e;
+    max-width: 2000px;
+    max-height: 900px;
+    padding: 2%;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     text-align: center;
-    font-size: 14px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow-y: auto;
 }
 
 h2, label, p {
-    color: #f7df59; /* Yellow text */
+    color: #fefefe;
     margin: 10px;
+    font-size: 1.5vw; /* Balanced font size */
 }
 
 input[type=number], input[type=text], select {
-    padding: 8px;
+    padding: 10px;
     margin: 5px;
-    width: 115px;
+    max-width: 600px;
     border-radius: 5px;
-    border: 1px solid #f7df59; /* Yellow border */
-    background-color: #fff; /* White background */
-    color: #000; /* Black text */
+    border: 1px solid #df7645;
+    background-color: #fff;
+    color: #000;
+    font-size: 1rem;
 }
 
 button {
@@ -40,32 +50,31 @@ button {
     margin: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #f7df59; /* Yellow button */
-    color: #000; /* Black text */
+    background-color: #df7645;
+    color: #000;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #C0C0C0; /* Light gray on hover */
-    color: #fff; /* White text on hover */
+    font-size: 1rem;
 }
 
 #gpa-result {
     margin-top: 20px;
     font-weight: bold;
-    font-size: 20px;
-    color: #f7df59; /* Yellow text */
+    font-size: 2.0rem;
+    color: #ffffff;
 }
 
 #current-gpa {
-    padding: 8px;
+    padding: 10px;
     margin: 5px;
     border-radius: 5px;
-    border: 1px solid #f7df59; /* Yellow border */
-    background-color: #fff; /* White background */
-    color: #000; /* Black text */
+    border: 1px solid #df7645;
+    background-color: #fff;
+    color: #000;
+    width: 95%;
+    max-width: 600px;
+    font-size: 1rem;
 }
 
-#current-cumulative-gpa-btn{
+#current-cumulative-gpa-btn {
     margin-top: 20px;
 }
